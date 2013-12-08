@@ -1,0 +1,2 @@
+#!/bin/sh
+ruby bin/index_tracks.rb

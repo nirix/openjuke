@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>OpenJuke</title>
+    <%= css_link_tag 'openjuke.css' %>
+
+    <script>
+      var play_random_track = <%= play_random_track %>;
+    </script>
+    <%= js_inc_tag '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js' %>
+    <%= js_inc_tag 'openjuke.js' %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

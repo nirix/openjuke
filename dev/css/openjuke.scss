@@ -1,0 +1,132 @@
+// Draper
+// normalize.css all the things!
+@import "draper/draper/normalize";
+@import "draper/draper/variables";
+@import "draper/draper/mixins";
+@import "draper/draper/base";
+@import "draper/draper/grid";
+@import "draper/draper/forms";
+
+/* ------------------------------------------------------------ */
+
+// OpenJuke
+
+$font-colour: #fff;
+$primary-colour: #3478aa;
+$secondary-colour: #265f98;
+
+$hover-colour: #fff;
+$hover-bg-colour: $primary-colour;
+
+$currently-playing-colour: #fff;
+$currently-playing-bg-colour: $primary-colour;
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    height: 100%;
+    background: $secondary-colour;
+    color: $font-colour;
+}
+
+.container {
+    width: 100%;
+
+    .row {
+        margin: 0;
+
+        .col {
+            padding: 0;
+        }
+    }
+}
+
+#player {
+    background: $primary-colour;
+
+    audio {
+        width: 100%;
+        display: block;
+    }
+
+    #progress_bar {
+        .progress {
+            // -webkit-appearance: none;
+            // display: block;
+            width: 0%;
+            height: 25px;
+            // border-radius: 0;
+            background-color: lighten($primary-colour, 15%);
+        }
+    }
+}
+
+#tracks {
+    border-right: 2px solid $primary-colour;
+
+    ul li {
+        cursor: pointer;
+
+        &:hover {
+            color: $hover-colour;
+            background: $hover-bg-colour;
+        }
+    }
+}
+
+#queued {
+    border-left: 2px solid $primary-colour;
+
+    .current_track {
+        color: $currently-playing-colour;
+        background: $currently-playing-bg-colour;
+        font-weight: bold;
+    }
+}
+
+#tracks, #queued {
+    .header {
+        padding: 2px 10px;
+        color: #fff;
+        background: $primary-colour;
+
+        h2 {
+            display: inline-block;
+            margin: 0;
+        }
+
+        input[type=search] {
+            border-radius: 5px;
+            border: 1px solid $secondary-colour;
+            padding: 1px 5px;
+            float: right;
+            margin-top: 2px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        overflow: hidden;
+        overflow-y: scroll;
+
+        li {
+            padding: 5px 10px;
+            border-bottom: 1px solid $primary-colour;
+
+            .artist {
+                // width: 200px;
+                // display: inline-block;
+
+                &:after {
+                    content: " - ";
+                }
+            }
+        }
+    }
+}

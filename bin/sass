@@ -1,0 +1,2 @@
+#!/bin/sh
+sass --watch dev/css/openjuke.scss:public/openjuke.css

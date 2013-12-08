@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div id="player">
+      <audio id="audio_player"></audio>
+      <div id="progress_bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="tracks" class="col span-6">
+      <div class="header">
+        <h2>Available Music</h2>
+        <input type="search" id="search" placeholder="Search tracks">
+      </div>
+      <ul>
+      <% tracks.each do |track| %>
+        <li data-id="<%= track.id %>" data-location="<%= track.url %>" data-artist="<%= track.artist %>" data-name="<%= track.name %>" data-title="<%= track.artist %> - <%= track.name %>">
+          <span class="artist"><%= track.artist %></span>
+          <span class="title"><%= track.name %></span>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+    <div id="queued" class="col span-6">
+      <div class="header">
+        <h2>Queued Music</h2>
+      </div>
+      <div id="now_playing"></div>
+      <ul id="queued_list"></ul>
+    </div>
+  </div>
+</div>
