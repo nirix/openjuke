@@ -1,0 +1,9 @@
+# Database connection URL
+# [driver]://[username]:[password]@[host]/[databasename]
+database: mysql2://root:root@localhost/openjuke
+
+# Port for server to run on
+port: 3000
+
+# Play random track when no music is queued
+play_random_track: false
