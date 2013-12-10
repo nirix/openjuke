@@ -44,7 +44,7 @@ class Track < Sequel::Model
   end
 
   def url
-    "/tracks/#{URI::encode(location)}"
+    "/tracks/#{URI::encode(self.location)}"
   end
 end
 
