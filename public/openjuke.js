@@ -105,7 +105,7 @@ $(document).ready(function(){
  */
 function updateProgress() {
 	var track_progress = ($player.currentTime / $player.duration * 100);
-	$("#progress_bar .progress").css('width', track_progress + '%');
+	$("#track-" + current_track.id + " .progress_bar .progress").css('width', track_progress + '%');
 }
 
 /**
@@ -129,14 +129,24 @@ function queueTrack(e) {
  * @param object track
  */
 function trackRow(track) {
+	// <li> and track info
 	var row = $('<li>');
 	row.attr('data-id', track.id);
 	row.attr('data-artist', track.artist);
 	row.attr('data-name', track.name);
 	row.attr('data-location', track.location);
 	row.attr('id', "track-" + track.id);
-	row.append($('<span>').addClass('artist').html(track.artist));
-	row.append($('<span>').addClass('title').html(track.name));
+
+	// Track artist / title
+	var track_title = $('<div>').addClass('track_info');
+	track_title.append($('<span>').addClass('artist').html(track.artist));
+	track_title.append($('<span>').addClass('title').html(track.name));
+	row.append(track_title);
+
+	// Track progress bar
+	var track_progress = $('<div>').addClass('progress_bar');
+	track_progress.append($('<div>').addClass('progress'));
+	row.append(track_progress);
 
 	return row;
 }
@@ -183,6 +193,10 @@ function playTrack(track) {
 
 	$("#track-" + track.id).addClass('current_track');
 	$("#audio_player").attr('src', track.location);
+
+	// $("#now_playing #track_info").fadeOut('fast').html(track.title).fadeIn('fast');
+	// $("#now_playing").show();
+	// $("#queued .current_track").slideUp('fast');
 
 	$player.play();
 	progress_ticker = window.setInterval(updateProgress, 128);

@@ -51,16 +51,17 @@ body {
         width: 100%;
         display: block;
     }
+}
 
-    #progress_bar {
-        .progress {
-            // -webkit-appearance: none;
-            // display: block;
-            width: 0%;
-            height: 25px;
-            // border-radius: 0;
-            background-color: lighten($primary-colour, 15%);
-        }
+#now_playing {
+    display: none;
+
+    #track_info {
+        position: absolute;
+        width: 100%;
+        padding: 5px 10px;
+        font-weight: bold;
+        border-bottom: 1px solid $primary-colour;
     }
 }
 
@@ -84,6 +85,26 @@ body {
         color: $currently-playing-colour;
         background: $currently-playing-bg-colour;
         font-weight: bold;
+        padding: 0;
+
+        .track_info {
+            padding: 5px 10px;
+            position: absolute;
+        }
+
+        .progress_bar {
+            display: block;
+        }
+    }
+
+    .progress_bar {
+        display: none;
+
+        .progress {
+            width: 0%;
+            height: 28px;
+            background-color: lighten($primary-colour, 15%);
+        }
     }
 }
 
@@ -120,9 +141,6 @@ body {
             border-bottom: 1px solid $primary-colour;
 
             .artist {
-                // width: 200px;
-                // display: inline-block;
-
                 &:after {
                     content: " - ";
                 }
